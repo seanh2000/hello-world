@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function updateOutput () {
+var txt = document.getElementById("txtUserInput").value;
+var numchars = txt.length;
+var txtOutput = "";
+var currWord = "";
+for (var i = 0; i<numchars; i++) {
+var currLetter = txt.substr(i,1);
+if (currLetter == " "){
+currWord = "";
+}
+else currWord += currLetter;
+}
+var numWords = (txt.split(" ").length);
+if (numchars == 0){
+numWords = 0;
+}
+var output = ""+numchars+" characters.<br>"+numWords+" words.";
+document.getElementById("pOutput").innerHTML = output;
+
+}
+</script>
+</head>
+<body>
+<textarea id='txtUserInput' onkeyup="updateOutput();" value=""></textarea><br>
+<p id='pOutput'>
+Your output will be shown here.
+</p>
+</body>
+</html>
